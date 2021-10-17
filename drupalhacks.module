@@ -1,0 +1,35 @@
+<?php
+
+use Drupal\node\NodeInterface;
+use Drupal\drupalhacks\Event\NodeCreatedInfoEvent;
+
+/**
+ * Implememts hook_ENTITY_TYPE_insert().
+ *
+ * Dispatches drupalhacks event on node save.
+ */
+function drupalhacks_node_insert(NodeInterface $node) {
+  // Instantiate our event.
+  $event = new NodeCreatedInfoEvent($node);
+
+  // Get the event_dispatcher service and dispatch the event.
+  $event_dispatcher = \Drupal::service('event_dispatcher');
+  $event_dispatcher->dispatch(NodeCreatedInfoEvent::EVENT_NAME, $event);
+}
+
+function drupalhacks_preprocess_page(&$variables) {
+}
+
+
+function drupalhacks_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
+  // kint($suggestions);
+  if ($hook == 'node') {
+    // unset($suggestions[array_key_last($suggestions)]);
+    // die("inside theme suggestions alter");
+  }
+}
+
+function drupalhacks_theme_suggestions_node_alter(array &$suggestions, $variables) {
+  // kint($suggestions);
+  // die("inside theme suggestions nodealter");
+}

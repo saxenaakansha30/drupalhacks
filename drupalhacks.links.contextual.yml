@@ -1,0 +1,5 @@
+drupalhacks_configure:
+  title: Configure DrupalHacks
+  route_name: drupalhacks.admin_settings
+  group: 'block'
+

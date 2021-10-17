@@ -1,0 +1,30 @@
+drupalhacks.settings:
+  title: 'Drupalhacks Settings Page'
+  parent: system.admin_config
+  description: 'Configure Drupalhacks'
+  route_name: drupalhacks.admin_settings
+drupalhacks.humans:
+  title: 'Drupalhacks Humans List'
+  parent: system.admin_config
+  description: 'List of Human Type Plugins'
+  route_name: drupalhacks.humans
+entity.musical_instruments.collection:
+  title: 'Musical Instruments'
+  parent: system.admin_config_system
+  description: 'Configure Musical Instruments'
+  route_name: entity.musical_instruments.collection
+entity.drupalhacks_contact.collection:
+  title: 'Content Entity: Contacts Listing'
+  route_name: entity.drupalhacks_contact.collection
+  description: 'List Contacts'
+  parent: system.admin_structure
+  weight: 10
+drupalhacks_contact.admin.structure.settings:
+  title: Contact Settings
+  description: 'Configure Contact entity'
+  route_name:  drupalhacks.contact_settings
+  parent: system.admin_structure
+drupalhacks.cert_config:
+  title: Cert Config Page
+  route_name: drupalhacks.cert_config
+  parent: system.admin_config

@@ -1,0 +1,39 @@
+services:
+  logger.channel.drupalhacks:
+    parent: logger.channel_base
+    arguments: [ 'drupalhacks' ]
+  drupalhacks.negotiator.admin_theme:
+    class: \Drupal\drupalhacks\Theme\DrupalHacksThemeNegotiator
+    tags:
+      - { name: theme_negotiator, priority: 1000 }
+  drupalhacks.utility:
+    class: \Drupal\drupalhacks\Utility
+  plugin.manager.human:
+    class: \Drupal\drupalhacks\HumanManager
+    parent: default_plugin_manager
+  drupalhacks.route_subscriber:
+    class: \Drupal\drupalhacks\EventSubscriber\RouteSubscriber
+    tags:
+      - { name: 'event_subscriber' }
+  drupalhacks.access_check:
+    class: \Drupal\drupalhacks\Access\DrupalHacksAccessCheck
+    tags:
+      - { name: access_check, applies_to: drupalhacks_access_check }
+  drupalhacks.param_converter:
+    class: \Drupal\drupalhacks\ParamConverter\DrupalHacksParamConverter
+    tags:
+      - { name: paramconverter }
+  drupalhacks.config_subscriber:
+    class: \Drupal\drupalhacks\EventSubscriber\DrupalHacksConfigSubscriber
+    tags:
+      - { name: 'event_subscriber' }
+    arguments: [ '@logger.factory' ]
+  drupalhacks.config_subscriber_new:
+    class: \Drupal\drupalhacks\EventSubscriber\DrupalHacksConfigSubscriberNew
+    tags:
+      - { name: 'event_subscriber' }
+    arguments: [ '@logger.channel.drupalhacks' ]
+  drupalhacks.custom_even_subscriber:
+    class: \Drupal\drupalhacks\EventSubscriber\DrupalHacksNodeSaveEventSubscriber
+    tags:
+      - { name: 'event_subscriber' }

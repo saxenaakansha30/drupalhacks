@@ -1,0 +1,13 @@
+drupalhacks.musical_instruments.*:
+  type: config_entity
+  label: Musical Instruments Config
+  mapping:
+    id:
+      type: string
+      label: ID
+    name:
+      type: string
+      label: name
+    type:
+      type: string
+      label: type

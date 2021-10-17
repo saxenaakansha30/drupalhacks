@@ -1,0 +1,30 @@
+.drupalhacks_link a {
+  position: relative;
+  display: inline-block;
+  font-size: 2em;
+  color: royalblue;
+  font-weight: 800;
+  text-decoration: underline;
+  overflow: hidden;
+}
+
+.drupalhacks_link a::before {
+  position: absolute;
+  content: attr(data-content); /* Prints the value of the attribute */
+  top: 0;
+  left: 0;
+  color: midnightblue;
+  text-decoration: underline;
+  overflow: hidden;
+  transition: width 275ms ease;
+}
+
+.drupalhacks_link a::before {
+  /* Same as before */
+  width: 0;
+  white-space: nowrap;
+}
+
+.drupalhacks_link a:hover::before {
+  width: 100%;
+}

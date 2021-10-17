@@ -1,0 +1,21 @@
+/**
+ * Conatins all macros of saxena custom theme.
+ */
+
+{{ attach_library(drupalhacks/global) }}
+
+{% macro myFunc1() %}
+  {{ 'This is reusable content from macro myFunc1'|t }}
+{% endmacro %}
+
+{% macro myFunc2(name) %}
+  {{ 'This is reusable content from macro myFunc2 called by: ' ~ name }}
+{% endmacro %}
+
+{% macro myFunc3() %}
+  {{ 'This is reusable content from macro myFunc3'|t }}
+  {{ varargs.0 }}
+  {{ varargs.1 }}
+  {{ varargs.2 }}
+{% endmacro %}
+

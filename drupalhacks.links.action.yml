@@ -1,0 +1,12 @@
+entity.musical_instruments.add_form:
+  route_name: 'entity.musical_instruments.add_form'
+  title: 'Add Musical Instrument'
+  appears_on:
+    - entity.musical_instruments.collection
+drupalhacks.contact_add:
+  route_name: drupalhacks.contact_add
+  title: 'Add Contact'
+  # Where will the link appear, defined by route name.
+  appears_on:
+    - entity.drupalhacks_contact.collection
+    - entity.drupalhacks_contact.canonical

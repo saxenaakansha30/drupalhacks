@@ -1,0 +1,133 @@
+drupalhacks.admin_settings:
+  path: /admin/config/drupalhacks
+  defaults:
+    _form: Drupal\drupalhacks\Form\SettingsForm
+    _title: DrupalHacks configuration screen
+  requirements:
+    _permission: administer site configuration
+
+drupalhacks.mypage:
+  path: /drupalhacks/home
+  defaults:
+    _controller: drupalhacks.utility:homePage
+    # _controller: \Drupal\drupalhacks\Controller\HomePageController::homePage
+    _title: DrupalHacks Home Page
+  requirements:
+    _permission: access content
+    _custom_access: \Drupal\drupalhacks\Controller\HomePageController::access
+
+drupalhacks.humans:
+  path: /admin/config/drupalhacks/humans
+  defaults:
+    _controller: \Drupal\drupalhacks\Controller\RenderHumanPlugins::renderHumans
+    _title: List of Human
+  requirements:
+    _permission: access content
+
+entity.musical_instruments.collection:
+  path: '/admin/config/system/drupalhacks'
+  defaults:
+    _entity_list: 'musical_instruments'
+    _title: 'Musical Instruments configuration'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.musical_instruments.add_form:
+  path: '/admin/config/system/drupalhacks/add'
+  defaults:
+    _entity_form: 'musical_instruments.add'
+    _title: 'Add Musical Instrument'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.musical_instruments.edit_form:
+  path: '/admin/config/system/drupalhacks/{musical_instruments}'
+  defaults:
+    _entity_form: 'musical_instruments.edit'
+    _title: 'Edit Musical Instrument'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.musical_instruments.delete_form:
+  path: '/admin/config/system/example/{musical_instruments}/delete'
+  defaults:
+    _entity_form: 'musical_instruments.delete'
+    _title: 'Delete Musical Instrument'
+  requirements:
+    _permission: 'administer site configuration'
+
+# Routing for Contact Content Entity related links.
+entity.drupalhacks_contact.canonical:
+  path: '/drupalhacks_contact/{drupalhacks_contact}'
+  defaults:
+  # Calls the view controller, defined in the annotation of the contact entity
+    _entity_view: 'drupalhacks_contact'
+    _title: 'Contact Content'
+  requirements:
+  # Calls the access controller of the entity, $operation 'view'
+    _entity_access: 'drupalhacks_contact.view'
+
+entity.drupalhacks_contact.collection:
+  path: '/drupalhacks_contact/list'
+  defaults:
+  # Calls the list controller, defined in the annotation of the contact entity.
+    _entity_list: 'drupalhacks_contact'
+    _title: 'Contact List'
+  requirements:
+  # Checks for permission directly.
+    _permission: 'administer contact entity'
+
+drupalhacks.contact_add:
+  path: '/drupalhacks_contact/add'
+  defaults:
+  # Calls the form.add controller, defined in the contact entity.
+    _entity_form: drupalhacks_contact.add
+    _title: 'Add Contact'
+  requirements:
+    _entity_create_access: 'drupalhacks_contact'
+
+entity.drupalhacks_contact.edit_form:
+  path: '/drupalhacks_contact/{drupalhacks_contact}/edit'
+  defaults:
+  # Calls the form.edit controller, defined in the contact entity.
+    _entity_form: drupalhacks_contact.edit
+    _title: 'Edit Contact'
+  requirements:
+    _entity_access: 'drupalhacks_contact.edit'
+
+entity.drupalhacks_contact.delete_form:
+  path: '/contact/{drupalhacks_contact}/delete'
+  defaults:
+    # Calls the form.delete controller, defined in the contact entity.
+    _entity_form: drupalhacks_contact.delete
+    _title: 'Delete Contact'
+  requirements:
+    _entity_access: 'drupalhacks_contact.delete'
+
+drupalhacks.contact_settings:
+  path: '/admin/structure/drupalhacks_contact_settings'
+  defaults:
+    _form: '\Drupal\drupalhacks\Form\ContactSettingsForm'
+    _title: 'Contact Settings'
+  requirements:
+    _permission: 'administer contact entity'
+
+drupalhacks.learn_param_converter:
+  path: /drupalhacks/{contact_entity}/paramconverter
+  defaults:
+    _controller: \Drupal\drupalhacks\Controller\CustomParamConverterController::content
+    _title: DrupalHacks Custom Parameter Converter Page
+  requirements:
+    _permission: access content
+    drupalhacks_access_check: 'TRUE'
+  options:
+    parameters:
+      contact_entity:
+        type: drupalhacks_menu
+drupalhacks.cert_config:
+  path: /drupalhacks/cert/configform
+  defaults:
+    _form: Drupal\drupalhacks\Form\CertificationConfigForm
+    _title: 'Certification Practice Form'
+  requirements:
+    _permission: access content
