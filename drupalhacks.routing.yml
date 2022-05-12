@@ -131,3 +131,19 @@ drupalhacks.cert_config:
     _title: 'Certification Practice Form'
   requirements:
     _permission: access content
+drupalhacks.create_image:
+drupalhacks.create_image:
+  path: /drupalhacks/create-image/{node}
+  defaults:
+    _controller: Drupal\drupalhacks\Controller\CreateImageProgrammatically::getLink
+    _title: 'Create Image for Node.'
+  requirements:
+    _permission: drupalhacks generate image
+    _entity_access: node.view
+  options:
+    parameters:
+      node:
+        type: entity:node
+    _admin_route: TRUE
+
+

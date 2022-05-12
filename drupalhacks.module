@@ -33,3 +33,15 @@ function drupalhacks_theme_suggestions_node_alter(array &$suggestions, $variable
   // kint($suggestions);
   // die("inside theme suggestions nodealter");
 }
+
+/**
+ * Implements hook_theme().
+ */
+function drupalhacks_theme($existing, $type, $theme, $path)
+{
+  return [
+    'node_modal' => [
+      'variables' => ['nid' => NULL],
+    ],
+  ];
+}

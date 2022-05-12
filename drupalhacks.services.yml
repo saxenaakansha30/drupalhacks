@@ -37,3 +37,9 @@ services:
     class: \Drupal\drupalhacks\EventSubscriber\DrupalHacksNodeSaveEventSubscriber
     tags:
       - { name: 'event_subscriber' }
+  drupalhacks.image_manager:
+    class: Drupal\drupalhacks\Service\ImageManager
+    arguments: ['@image.factory', '@drupalhacks.image_effect_factory', '@logger.channel.drupalhacks', '@file_system']
+  drupalhacks.image_effect_factory:
+    class: Drupal\drupalhacks\Service\ImageEffectFactory
+    arguments: ['@plugin.manager.image.effect']

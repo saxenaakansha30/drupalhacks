@@ -11,3 +11,7 @@ administer contact entity:
   restrict access: TRUE
 access user edit page:
   title: 'Access User Edit Page'
+drupalhacks generate image:
+  title: Create Image Programmatically
+  description: Create Image Programmatically.
+  restrict access: TRUE
