@@ -124,6 +124,7 @@ drupalhacks.learn_param_converter:
     parameters:
       contact_entity:
         type: drupalhacks_menu
+
 drupalhacks.cert_config:
   path: /drupalhacks/cert/configform
   defaults:
@@ -131,7 +132,7 @@ drupalhacks.cert_config:
     _title: 'Certification Practice Form'
   requirements:
     _permission: access content
-drupalhacks.create_image:
+
 drupalhacks.create_image:
   path: /drupalhacks/create-image/{node}
   defaults:

@@ -88,7 +88,7 @@ class ImageEffectFactory {
    */
   private function getFontOverrides(): array {
     return [
-      'name' => 'Intel Clear Light',
+      'name' => 'Lato Regular',
       'uri' => $this->getFontUri(),
       'size' => 18,
       'color' => '#232C61FF',
@@ -159,7 +159,7 @@ class ImageEffectFactory {
    *   Desired Font from theme if exist else fall back on default.
    */
   private function getFontUri(): string {
-    return DRUPAL_ROOT . '/../vendor/phenx/php-font-lib/sample-fonts/IntelClear-Light.ttf';
+    return __DIR__ . '/../../font/Lato-Regular.ttf';
   }
 
 }

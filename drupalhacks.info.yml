@@ -3,7 +3,7 @@ description: Module to demonstrate new implementations
 core_version_requirement: ^9
 type: module
 
-# dependencies:
-#   - drupal:node
-#   - drupal:image
-#   - image_effects:image_effects
+dependencies:
+  - drupal:node
+  - drupal:image
+  - image_effects:image_effects
